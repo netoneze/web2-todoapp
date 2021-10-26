@@ -22,13 +22,14 @@ router.post("/tarefas", function (req, res){
     res.redirect("/");
 })
 
-router.post("/tarefas/edit/:id", function (req, res){
-    const {nome} = req.body;
-    if (nome === null || nome === undefined || nome === "") {
+router.post("/tarefasEdit", function (req, res){
+    let body = [];
+    body = req.body;
+    if (body.nomeEdit === null || body.nomeEdit === undefined || body.nomeEdit === "") {
         res.send("O nome da tarefa não pode ser vazio!");
         return;
     }
-    Task.new(nome);
+    Task.edit(body.dropdown, body.nomeEdit);
     res.redirect("/");
 })
 
