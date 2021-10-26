@@ -12,6 +12,14 @@ module.exports = {
     list() {
         return tasks;
     },
+    get(id) {
+        for (let i = 0; i<tasks.length; i++) {
+            if (tasks[i].id == id) {
+                return tasks[i];
+            }
+        }
+        return -1;
+    },
     getPositionById(id) {
         for (let i = 0; i<tasks.length; i++) {
             if (tasks[i].id == id) {
