@@ -26,15 +26,17 @@
         <input type="submit" value="Salvar" class="btn-primary"/>
     </form>
 
+    <br>
+
     <h2>Editar Tarefa</h2>
-    <form action="/tarefasEdit/" method="POST">
+    <form action="/tarefasEdit" method="POST">
         <label for="nomeEdit">Nome:</label>
         <input type="text" id="nomeEdit" name="nomeEdit" />
         <input type="submit" value="Salvar" class="btn-primary"/>
         <select name = "dropdown">
             <option value=0 selected>Selecione</option>
             {{#tasks}}
-                <option value={{name}}>{{name}}</option>
+                <option value={{id}}>{{name}}</option>
             {{/tasks}}
         </select>
     </form>
