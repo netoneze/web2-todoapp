@@ -18,7 +18,7 @@ module.exports = {
     },
     getPositionById(id) {
         for (let i = 0; i<tasks.length; i++) {
-            if (tasks[i].id === id) {
+            if (tasks[i].id == id) {
                 return i;
             }
         }
@@ -26,7 +26,7 @@ module.exports = {
     },
     getPositionByNome(name) {
         for (let i = 0; i<tasks.length; i++) {
-            if (tasks[i].name === name) {
+            if (tasks[i].name == name) {
                 return i;
             }
         }
@@ -34,7 +34,7 @@ module.exports = {
     },
     getNomeRepetido(name) {
         for (let i = 0; i<tasks.length; i++) {
-            if (tasks[i].name === name) {
+            if (tasks[i].name == name) {
                 return true;
             }
         }
@@ -48,10 +48,11 @@ module.exports = {
         }
         return false; 
     },
-    edit(name, newName){
-        let i = this.getPositionByNome(name);
+    edit(id, newName){
+        let i = this.getPositionById(id);
         if (i >= 0) {
-            tasks.insert(i, name)
+            let task = {id: id, name: newName};
+            tasks.splice(i, 1, task)
             return true;
         }
         return false;
