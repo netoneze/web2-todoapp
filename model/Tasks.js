@@ -1,10 +1,6 @@
 let ids = 0;
 let tasks = [];
 
-Array.prototype.insert = function ( index, item ) {
-    this.splice( index, 0, item );
-};
-
 module.exports = {
     new(name) {
         if (!this.getNomeRepetido(name)) {
@@ -19,14 +15,6 @@ module.exports = {
     getPositionById(id) {
         for (let i = 0; i<tasks.length; i++) {
             if (tasks[i].id == id) {
-                return i;
-            }
-        }
-        return -1;
-    },
-    getPositionByNome(name) {
-        for (let i = 0; i<tasks.length; i++) {
-            if (tasks[i].name == name) {
                 return i;
             }
         }
